@@ -17,7 +17,7 @@ app.get('/', (req, res) => {
 })
 
 
-
+// Add a Note 
 app.post('/Note', async (req, res) => {
     try {
         const note = await helper.addNote(req.body)
@@ -27,6 +27,7 @@ app.post('/Note', async (req, res) => {
     }
 })
 
+// View all Notes
 app.get('/Note', async (req, res) => {
     try {
         let viewNote = await helper.getNotes()
@@ -37,7 +38,7 @@ app.get('/Note', async (req, res) => {
     }
 })
 
-// 
+// view a Note by id
 app.get('/Note/:id', async (req, res) => {
     let id = req.params.id
     try {
@@ -48,6 +49,7 @@ app.get('/Note/:id', async (req, res) => {
     }
 })
 
+// Edit a note 
 app.put('/Note/:id', async (req, res) => {
     const id = req.params.id
     const body = req.body
@@ -65,6 +67,7 @@ app.put('/Note/:id', async (req, res) => {
 })
 
 
+// Delete a Note 
 app.delete('/Note/:id', async (req, res) => {
     const id = req.params.id
     try {
