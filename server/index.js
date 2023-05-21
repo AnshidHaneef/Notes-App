@@ -16,11 +16,7 @@ app.use(express.json())
 
 app.use(express.urlencoded({ extended: true }))
 
-app.use()
-
-
-
-
+app.use('/server/router', router)
 
 
 app.listen(PORT, () => {
