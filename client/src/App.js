@@ -1,13 +1,12 @@
-import Home from './Pages/Home'
+// import Home from './Pages/Home'
+import Profile from './Pages/profile'
 
 function App() {
   return (
-    
-    <div>
-
-    <Home/>
-    
-    </div>
+    <>
+      {/* <Home /> */}
+      <Profile/>
+    </>
   );
 }
 

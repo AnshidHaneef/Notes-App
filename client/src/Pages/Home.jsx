@@ -1,14 +1,17 @@
 import React from 'react';
 import { CssBaseline, Typography, Box } from '@mui/material';
+import Cards from '../components/Cards';
 
 const App = () => {
   return (
     <div>
       <CssBaseline />
-      <Box sx={{ background: 'linear-gradient(to right, grey,lightblue,tan)', minHeight: '100vh', p: 4 }}>
+      
+      <Box sx={{ background: 'linear-gradient(to right,lightblue,tan)', minHeight: '100vh', p: 4 }}>
 
-        <Typography variant="h1">Welcome to My App</Typography>
-        <Typography variant="body1">Interactive linear gradient background</Typography>
+        <Typography sx={{ display:'flex' , justifyContent:'center'}} variant="h2">MY NOTES</Typography>
+
+        <Cards />
         
       </Box>
     </div>

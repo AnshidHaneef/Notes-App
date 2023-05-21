@@ -1,16 +1,18 @@
 const express = require('express')
+const helper = require('../helper/notesHelper')
 
-const app = express.Router()
+
+const router = express.Router()
 
 
 // Routes
-app.get('/', (req, res) => {
+router.get('/', (req, res) => {
     res.status(200).send('Express App Started ..');
 })
 
 
 // Add a Note 
-app.post('/Note', async (req, res) => {
+router.post('/Note', async (req, res) => {
     try {
         const note = await helper.addNote(req.body)
         res.status(200).json(note)
@@ -20,7 +22,7 @@ app.post('/Note', async (req, res) => {
 })
 
 // View all Notes
-app.get('/Note', async (req, res) => {
+router.get('/Note', async (req, res) => {
     try {
         let viewNote = await helper.getNotes()
         res.status(200).json(viewNote)
@@ -31,7 +33,7 @@ app.get('/Note', async (req, res) => {
 })
 
 // view a Note by id
-app.get('/Note/:id', async (req, res) => {
+router.get('/Note/:id', async (req, res) => {
     let id = req.params.id
     try {
         const selectedNote = await helper.getOneNote(id)
@@ -42,7 +44,7 @@ app.get('/Note/:id', async (req, res) => {
 })
 
 // Edit a note 
-app.put('/Note/:id', async (req, res) => {
+router.put('/Note/:id', async (req, res) => {
     const id = req.params.id
     const body = req.body
     try {
@@ -60,7 +62,7 @@ app.put('/Note/:id', async (req, res) => {
 
 
 // Delete a Note 
-app.delete('/Note/:id', async (req, res) => {
+router.delete('/Note/:id', async (req, res) => {
     const id = req.params.id
     try {
         const note = await helper.deleteNote(id)
@@ -72,3 +74,5 @@ app.delete('/Note/:id', async (req, res) => {
         console.log(error);
     }
 })
+
+module.exports = router;
