@@ -11,7 +11,7 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import config from "../config.json";
 import { useNavigate, useParams } from "react-router-dom";
-import EditNote from '../Pages/EditNote'
+// import EitNote from '../Pages/EditNote' 
 
   const Cards = () => {
   const navigate = useNavigate();
@@ -62,7 +62,7 @@ import EditNote from '../Pages/EditNote'
         </CardContent>
         <CardActions>
           <Button
-            onClick={() => navigate(<EditNote/>)}
+            onClick={() => navigate(`/EditNote/${data._id}`)}
             variant="contained"
             size="medium"
           >
