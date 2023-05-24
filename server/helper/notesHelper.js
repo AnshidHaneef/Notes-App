@@ -13,8 +13,8 @@ module.exports = {
     },
 
     getNotes:()=>{
-        return new Promise((resolve,reject)=>{
-            model.find().then((data)=>{
+        return new Promise(async(resolve,reject)=>{
+           await model.find().then((data)=>{
                 resolve(data)
             }).catch((error)=>{
                 reject(error)
@@ -23,8 +23,8 @@ module.exports = {
     },
 
     getOneNote: (id) => {
-        return new Promise((resolve, reject) => {
-            model.findById(id).then((data) => {
+        return new Promise(async(resolve, reject) => {
+          await  model.findById(id).then((data) => {
                 resolve(data)
             }).catch((error) => {
                 reject(error)
@@ -41,7 +41,7 @@ module.exports = {
             })
         })
     },
-
+    
     deleteNote:(id)=>{
         return new Promise((resolve,reject)=>{
             model.findByIdAndDelete(id).then((deleted)=>{

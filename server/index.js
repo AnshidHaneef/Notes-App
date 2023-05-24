@@ -1,19 +1,17 @@
 const express = require('express');
 const app = express();
 require('dotenv').config()
+const cors = require('cors')
 const PORT = 5000;
 
 
 const router = require('./Routes/router')
 const db = require('./config/connection')
-const Notes = require('./model/model')
-const helper = require('./helper/notesHelper')
-
 
 
 // Middlewares 
 app.use(express.json())
-
+app.use(cors())
 app.use(express.urlencoded({ extended: true }))
 
 app.use('/server/router', router)
