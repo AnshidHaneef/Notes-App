@@ -9,8 +9,6 @@ const EditNote = () => {
   const navigate = useNavigate()
   const { id } = useParams();
 
-  console.log(id);
-
   const [post, setPost] = useState({
     title: "",
     body: "",

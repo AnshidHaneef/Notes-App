@@ -10,14 +10,17 @@ import {
 import { useEffect, useState } from "react";
 import axios from "axios";
 import config from "../config.json";
-import { useNavigate, useParams } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 // import EitNote from '../Pages/EditNote' 
 
   const Cards = () => {
   const navigate = useNavigate();
-  const { params } = useParams();
+  // const { params } = useParams();
 
-  console.log("params", params);
+  const deleteNote = () =>{
+
+  }
+  
 
   //  Styling Functions
   const getRandomColor = () => {
@@ -68,7 +71,7 @@ import { useNavigate, useParams } from "react-router-dom";
           >
             Edit
           </Button>
-          <Button variant="contained" color="error" size="medium">
+          <Button onClick={deleteNote} variant="contained" color="error" size="medium">
             Delete
           </Button>
         </CardActions>
