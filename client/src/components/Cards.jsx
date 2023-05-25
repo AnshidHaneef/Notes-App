@@ -16,10 +16,7 @@ import { useNavigate } from "react-router-dom";
   const Cards = () => {
   const navigate = useNavigate();
   // const { params } = useParams();
-
-  const deleteNote = () =>{
-
-  }
+  
   
 
   //  Styling Functions
@@ -56,6 +53,11 @@ import { useNavigate } from "react-router-dom";
     fetchPosts();
   }, []);
 
+  const deleteNote = async (data) =>{
+    setNotes(notes.filter((e) => e._id !==data._id ))
+    await axios.delete(`${config.apiUrl}/${data._id}`)
+  }
+
   return notes.map((data) => (
     <Box width="300px" sx={hoverCardStyles}>
       <Card sx={cardStyle}>
@@ -71,7 +73,7 @@ import { useNavigate } from "react-router-dom";
           >
             Edit
           </Button>
-          <Button onClick={deleteNote} variant="contained" color="error" size="medium">
+          <Button onClick={()=> deleteNote(data)} variant="contained" color="error" size="medium">
             Delete
           </Button>
         </CardActions>
