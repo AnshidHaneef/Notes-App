@@ -1,1 +1,1 @@
-![Screenshot](/client/public/image/screenshot.png)
+![Screenshot](../client/public/image/screenshot.png)
